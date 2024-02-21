@@ -1,13 +1,13 @@
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize } from "sequelize";
 
 import { db } from "../config/environment";
 
-const sequelize = new Sequelize(db.name, db.user, db.password, {
+const connection = new Sequelize(db.name, db.user, db.password, {
   host: db.host,
   dialect: "mysql",
 });
 
-sequelize
+connection
   .authenticate()
   .then(() => {
     console.log("Conexión establecida correctamente.");
@@ -15,3 +15,5 @@ sequelize
   .catch((error) => {
     console.error("No se pudo conectar a la base de datos:", error);
   });
+
+export default connection;

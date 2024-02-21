@@ -8,4 +8,9 @@ const getUrl = async (req: Request, res: Response, _next: NextFunction) => {
   else res.json({ status: "ok", message: "no" });
 };
 
-export default { getUrl };
+const createUrl = async (req: Request, res: Response, _next: NextFunction) => {
+  const { body: data } = req;
+  console.log(data);
+};
+
+export default { getUrl, createUrl };

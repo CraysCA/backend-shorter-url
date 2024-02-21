@@ -1,7 +1,12 @@
 export = (sequelize, DataTypes) => {
   const Url = sequelize.define(
-    "Url",
+    "url",
     {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
       url: {
         type: DataTypes.STRING,
       },
@@ -14,12 +19,12 @@ export = (sequelize, DataTypes) => {
     },
 
     {
-      timestamps: false,
+      timestamps: true,
       underscored: true,
       freezeTableName: true,
     }
   );
-  // Url.sync({ force: true });
+  Url.sync({ force: true });
 
   return Url;
 };
