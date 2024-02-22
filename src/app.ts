@@ -5,14 +5,14 @@ import routes from "./routes";
 import { server } from "./config/environment";
 
 import "./db/sequelize";
-import { errorHandler } from "./utils/middlewares/errorHandler";
-//import dependencies from "./config/dependencies";
+import errorHandler from "./utils/middlewares/errorHandler";
+import dependencies from "./config/dependencies";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(routes);
+app.use(routes(dependencies));
 app.use(errorHandler);
 
 app.listen(server.port, () =>

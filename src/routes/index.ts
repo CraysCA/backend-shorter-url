@@ -4,6 +4,8 @@ import urlRoutes from "./url-routes";
 
 const router = Router();
 
-router.use("/link", urlRoutes);
+export default (dependencies) => {
+  router.use("/link", urlRoutes(dependencies));
 
-export default router;
+  return router;
+};

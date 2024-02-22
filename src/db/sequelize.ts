@@ -5,6 +5,7 @@ import { db } from "../config/environment";
 const connection = new Sequelize(db.name, db.user, db.password, {
   host: db.host,
   dialect: "mysql",
+  logging: db.logging,
 });
 
 connection

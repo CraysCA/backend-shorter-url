@@ -1,4 +1,4 @@
-import { object, number, integer, string, optional } from "valibot";
+import { object, number, integer, string, optional, boolean } from "valibot";
 
 export const serverSchema = object({
   port: number([integer()]),
@@ -11,4 +11,5 @@ export const dbSchema = object({
   user: string(),
   password: string(),
   dialect: string(),
+  logging: boolean(),
 });

@@ -14,4 +14,5 @@ export const db: Database = validationSchema(dbSchema, {
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   dialect: process.env.DB_DIALECT,
+  logging: process.env.DB_LOGGING === "true" ? true : false,
 });

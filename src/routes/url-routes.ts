@@ -5,8 +5,12 @@ import { createUrl } from "../config/schemas/url-schema";
 
 const router = express();
 
-router.get("/:hash", urlController.getUrl);
+export default (dependencies) => {
+  const controller = urlController(dependencies);
 
-router.post("/", validationHandler(createUrl), urlController.createUrl);
+  router.get("/:hash", controller.getUrl);
 
-export default router;
+  router.post("/", validationHandler(createUrl), controller.createUrl);
+
+  return router;
+};

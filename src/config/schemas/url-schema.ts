@@ -5,7 +5,4 @@ export const createUrl = {
     url: string(),
     userId: optional(number([integer()])),
   }),
-  query: object({
-    hola: string(),
-  }),
 };
